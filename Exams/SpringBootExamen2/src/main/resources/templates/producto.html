@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medicine For All</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+	<div id="main-container">
+		<div>
+			<h3 class="p-4 mb-5">Registre un Producto</h3>
+		</div>
+
+		<form th:action="@{/producto}" th:object="${producto}" method="post">
+
+			<div class="mb-5 text-left">
+				<div class="m-5 position-relative">
+					<label class="label-top">Nombre</label>
+					<input type="text" class="input-form" th:field="*{nombre}">
+				</div>
+
+				<div class="m-5 position-relative">
+					<label class="label-top">Grado de Calidad</label> 
+					<select id="" th:field="*{grado}">
+						<option value="A">Máximo</option>
+						<option value="B">Intermedio</option>
+						<option value="C">Mínimo</option>
+					</select>
+				</div>
+
+				<div class="m-5 position-relative">
+					<label class="label-top">Cantidad Total</label>
+					<input type="number" min="1" value="1" th:field="*{cantidad_total}">
+				</div>
+
+				<div class="m-5 position-relative">
+					<label class="label-top">Número de Cajas</label>
+					<input type="number" min="1" value="1" th:field="*{cantidad_cajas}">
+				</div>
+
+				<div class="m-5 position-relative">
+					<label class="label-top">Bodega</label>
+					<select th:field="*{idBodega}">
+						<option th:each="bodegas:${bodegas}" th:value="${bodegas.id}"
+							th:text="${bodegas.nombre}" />
+					</select>
+				</div>
+
+			</div>
+
+			<button type="submit">Registrar</button>
+
+		</form>
+		<button type="button" onclick="window.location.href = window.location.href.split('producto')[0];">Inicio</button>
+
+	</div>
+</body>
+</html>
