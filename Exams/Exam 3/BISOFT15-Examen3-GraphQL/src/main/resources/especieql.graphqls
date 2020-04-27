@@ -1,0 +1,26 @@
+type Especie {
+	id: ID!,
+	nombre: String,
+	nombre_descubierto: String,
+	fecha: String,
+	tipo: String,
+	guid: String
+}
+
+input EspecieInput {
+	nombre: String,
+	nombre_descubierto: String,
+	fecha: String,
+	tipo: String
+}
+
+type Query {
+	especies:[Especie]
+	especie(guid: String):Especie
+}
+
+type Mutation {
+	createEspecie(nombre: String, nombre_descubierto: String, tipo: String):Especie
+	updateEspecie(guid: String!, nombre: String, nombre_descubierto: String, fecha: String, tipo: String):Especie
+	deleteEspecie(guid: String!):Boolean
+}

@@ -1,0 +1,68 @@
+# CREATE
+
+mutation {
+  createEspecie(nombre: "Nombre #1", nombre_descubierto: "Nombre descubierto #1", tipo: "Tipo #1") {
+    id
+    nombre
+    nombre_descubierto
+    fecha
+    tipo
+    guid
+  }
+}
+
+
+# GET BY GUID
+
+query {
+  especie(guid: "8842955c-0ca7-404e-96a7-2c3a84ba1145") {
+    id
+    nombre
+    nombre_descubierto
+    fecha
+    tipo
+    guid
+  }
+}
+
+
+# GET ALL
+
+query {
+  especies {
+    id
+    nombre
+    nombre_descubierto
+    fecha
+    tipo
+    guid
+  }
+}
+
+
+# UPDATE BY GUID
+
+mutation {
+  updateEspecie(guid: "b2208a5a-c819-4da7-92c3-e60a783820b5", nombre: "Nombre #3", nombre_descubierto: "Nombre descubierto #3", tipo: "Tipo #3") {
+    id
+    nombre
+    nombre_descubierto
+    fecha
+    tipo
+    guid
+  }
+}
+
+
+# DELETE BY GUID
+
+mutation {
+  deleteEspecie(guid: "b2208a5a-c819-4da7-92c3-e60a783820b5")
+}
+
+
+
+
+
+
+
